@@ -13,6 +13,7 @@ import courseProgressRoute from './route/courseProgress.route.js'
 
 dotenv.config();
 
+console.log("Allowed Origin ", process.env.FRONTEND_URI);
 // call database connection here
 databaseConnection();
 const app = express();
