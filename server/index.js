@@ -24,21 +24,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cookieParser());
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://jade-khapse-e352b9.netlify.app"
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    console.log("Request Origin →", origin);
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true
+    origin: process.env.FRONTEND_URI,
+    credentials:true
 }));
 
  
